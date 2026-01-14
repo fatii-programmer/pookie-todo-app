@@ -1,21 +1,36 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getSession } from '@/lib/auth'
-import { getTasks, addTask } from '@/lib/db'
-import { Task } from '@/types'
+import { cookies } from 'next/headers'
 
 export async function GET(): Promise<Response> {
   try {
-    const session = await getSession()
+    const cookieStore = cookies()
+    const token = cookieStore.get('token')?.value
 
-    if (!session) {
+    if (!token) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       )
     }
 
-    const tasks = await getTasks(session.userId)
-    return NextResponse.json({ tasks })
+    // Call the backend API for getting tasks
+    const backendUrl = process.env.BACKEND_URL || 'https://pookie-todo-backend.vercel.app'
+    const res = await fetch(`${backendUrl}/api/todos`, {
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+    })
+
+    if (!res.ok) {
+      return NextResponse.json(
+        { error: 'Failed to fetch tasks' },
+        { status: res.status }
+      )
+    }
+
+    const data = await res.json()
+    return NextResponse.json({ tasks: data.tasks })
   } catch (error) {
     console.error('Get tasks error:', error)
     return NextResponse.json(
@@ -27,9 +42,10 @@ export async function GET(): Promise<Response> {
 
 export async function POST(request: NextRequest): Promise<Response> {
   try {
-    const session = await getSession()
+    const cookieStore = cookies()
+    const token = cookieStore.get('token')?.value
 
-    if (!session) {
+    if (!token) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
@@ -37,7 +53,7 @@ export async function POST(request: NextRequest): Promise<Response> {
     }
 
     const body = await request.json()
-    const { description, priority, tags, dueDate } = body
+    const { description, priority, tags, due_date } = body
 
     if (!description) {
       return NextResponse.json(
@@ -46,16 +62,32 @@ export async function POST(request: NextRequest): Promise<Response> {
       )
     }
 
-    const task = await addTask(session.userId, {
-      description,
-      completed: false,
-      createdAt: new Date(),
-      priority: priority || 'normal',
-      tags: tags || [],
-      dueDate: dueDate ? new Date(dueDate) : null,
+    // Call the backend API for creating task
+    const backendUrl = process.env.BACKEND_URL || 'https://pookie-todo-backend.vercel.app'
+    const res = await fetch(`${backendUrl}/api/todos`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        description,
+        priority: priority || 'normal',
+        tags: tags || [],
+        due_date: due_date || null,
+      }),
     })
 
-    return NextResponse.json({ task })
+    if (!res.ok) {
+      const errorData = await res.json()
+      return NextResponse.json(
+        { error: errorData.detail || 'Failed to create task' },
+        { status: res.status }
+      )
+    }
+
+    const data = await res.json()
+    return NextResponse.json({ task: data })
   } catch (error) {
     console.error('Create task error:', error)
     return NextResponse.json(

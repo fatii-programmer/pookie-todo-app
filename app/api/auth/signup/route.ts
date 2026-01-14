@@ -1,7 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { createUser, getUser } from '@/lib/db'
-import { hashPassword, createToken } from '@/lib/auth'
-import { nanoid } from 'nanoid'
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,36 +11,32 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Check if user already exists
-    const existingUser = await getUser(email)
-    if (existingUser) {
+    // Call the backend API for signup
+    const backendUrl = process.env.BACKEND_URL || 'https://pookie-todo-backend.vercel.app'
+    const res = await fetch(`${backendUrl}/api/auth/signup`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
+    })
+
+    const data = await res.json()
+
+    if (!res.ok) {
       return NextResponse.json(
-        { error: 'User already exists' },
-        { status: 400 }
+        { error: data.detail || 'Signup failed' },
+        { status: res.status }
       )
     }
 
-    // Create new user
-    const passwordHash = await hashPassword(password)
-    const userId = nanoid()
-
-    await createUser({
-      id: userId,
-      email,
-      passwordHash,
-      createdAt: new Date(),
-    })
-
-    // Create JWT token
-    const token = await createToken(userId)
-
-    // Set auth cookie
-    const res = NextResponse.json({
+    // Set auth cookie with the token from backend
+    const response = NextResponse.json({
       success: true,
-      userId
+      userId: data.user_id
     })
 
-    res.cookies.set('token', token, {
+    response.cookies.set('token', data.token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
@@ -51,7 +44,7 @@ export async function POST(request: NextRequest) {
       path: '/',
     })
 
-    return res
+    return response
   } catch (error) {
     console.error('Signup error:', error)
     return NextResponse.json(

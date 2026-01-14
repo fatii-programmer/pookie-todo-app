@@ -1,7 +1,4 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { getUser } from '@/lib/db'
-import { verifyPassword, createToken } from '@/lib/auth'
-import { logAction } from '@/lib/history'
 
 export async function POST(request: NextRequest) {
   try {
@@ -14,39 +11,32 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Find user
-    const user = await getUser(email)
-    if (!user) {
-      return NextResponse.json(
-        { error: 'Invalid credentials' },
-        { status: 401 }
-      )
-    }
-
-    // Verify password
-    const isValid = await verifyPassword(password, user.passwordHash)
-    if (!isValid) {
-      return NextResponse.json(
-        { error: 'Invalid credentials' },
-        { status: 401 }
-      )
-    }
-
-    // Create JWT token
-    const token = await createToken(user.id)
-
-    // Log login action
-    await logAction('user_login', user.id, undefined, {
-      email: user.email,
+    // Call the backend API for authentication
+    const backendUrl = process.env.BACKEND_URL || 'https://pookie-todo-backend.vercel.app'
+    const res = await fetch(`${backendUrl}/api/auth/login`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ email, password }),
     })
 
-    // Set auth cookie
-    const res = NextResponse.json({
+    const data = await res.json()
+
+    if (!res.ok) {
+      return NextResponse.json(
+        { error: data.detail || 'Invalid credentials' },
+        { status: res.status }
+      )
+    }
+
+    // Set auth cookie with the token from backend
+    const response = NextResponse.json({
       success: true,
-      userId: user.id
+      userId: data.user_id
     })
 
-    res.cookies.set('token', token, {
+    response.cookies.set('token', data.token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
@@ -54,7 +44,7 @@ export async function POST(request: NextRequest) {
       path: '/',
     })
 
-    return res
+    return response
   } catch (error) {
     console.error('Login error:', error)
     return NextResponse.json(

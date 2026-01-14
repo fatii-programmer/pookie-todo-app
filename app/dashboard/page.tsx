@@ -67,7 +67,7 @@ export default function DashboardPage(): JSX.Element {
         description: newTask.trim(),
         priority: newTaskPriority,
         tags: newTaskCategory.trim() ? [newTaskCategory.trim()] : [],
-        dueDate: newTaskDeadline || null,
+        due_date: newTaskDeadline || null,
       }
 
       const res = await fetch('/api/todos', {
@@ -144,7 +144,7 @@ export default function DashboardPage(): JSX.Element {
           description: editingTask.description,
           priority: editingTask.priority,
           tags: editingTask.tags,
-          dueDate: editingTask.dueDate,
+          due_date: editingTask.dueDate,
         }),
       })
 
