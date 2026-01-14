@@ -1,15 +1,15 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { cookies } from 'next/headers'
+import { getSession } from '@/lib/auth'
+import { updateTask, deleteTask } from '@/lib/db'
 
 export async function PATCH(
   request: NextRequest,
   { params }: { params: { id: string } }
 ): Promise<Response> {
   try {
-    const cookieStore = cookies()
-    const token = cookieStore.get('token')?.value
+    const session = await getSession()
 
-    if (!token) {
+    if (!session) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
@@ -26,27 +26,16 @@ export async function PATCH(
 
     const body = await request.json()
 
-    // Call the backend API for updating task
-    const backendUrl = process.env.BACKEND_URL || 'https://pookie-todo-backend.vercel.app'
-    const res = await fetch(`${backendUrl}/api/todos/${taskId}`, {
-      method: 'PATCH',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(body),
-    })
+    const task = await updateTask(session.userId, taskId, body)
 
-    if (!res.ok) {
-      const errorData = await res.json()
+    if (!task) {
       return NextResponse.json(
-        { error: errorData.detail || 'Failed to update task' },
-        { status: res.status }
+        { error: 'Task not found' },
+        { status: 404 }
       )
     }
 
-    const data = await res.json()
-    return NextResponse.json({ task: data })
+    return NextResponse.json({ task })
   } catch (error) {
     console.error('Update task error:', error)
     return NextResponse.json(
@@ -61,10 +50,9 @@ export async function DELETE(
   { params }: { params: { id: string } }
 ): Promise<Response> {
   try {
-    const cookieStore = cookies()
-    const token = cookieStore.get('token')?.value
+    const session = await getSession()
 
-    if (!token) {
+    if (!session) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
@@ -79,21 +67,12 @@ export async function DELETE(
       )
     }
 
-    // Call the backend API for deleting task
-    const backendUrl = process.env.BACKEND_URL || 'https://pookie-todo-backend.vercel.app'
-    const res = await fetch(`${backendUrl}/api/todos/${taskId}`, {
-      method: 'DELETE',
-      headers: {
-        'Authorization': `Bearer ${token}`,
-        'Content-Type': 'application/json',
-      },
-    })
+    const deleted = await deleteTask(session.userId, taskId)
 
-    if (!res.ok) {
-      const errorData = await res.json()
+    if (!deleted) {
       return NextResponse.json(
-        { error: errorData.detail || 'Failed to delete task' },
-        { status: res.status }
+        { error: 'Task not found' },
+        { status: 404 }
       )
     }
 

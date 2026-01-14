@@ -1,26 +1,29 @@
 import { NextResponse } from 'next/server'
-import { cookies } from 'next/headers'
+import { getSession } from '@/lib/auth'
+import { getTasks } from '@/lib/db'
 
 export async function GET() {
   try {
-    const cookieStore = cookies()
-    const token = cookieStore.get('token')?.value
+    const session = await getSession()
 
-    if (!token) {
+    if (!session) {
       return NextResponse.json(
         { error: 'Unauthorized' },
         { status: 401 }
       )
     }
 
-    // Analytics functionality is not yet implemented in the backend
-    // Return a default response for now
+    // Get tasks for analytics
+    const tasks = await getTasks(session.userId)
+    const completedTasks = tasks.filter(t => t.completed).length
+    const pendingTasks = tasks.filter(t => !t.completed).length
+
     return NextResponse.json({
       stats: {
-        totalTasks: 0,
-        completedTasks: 0,
-        pendingTasks: 0,
-        productivityScore: 0,
+        totalTasks: tasks.length,
+        completedTasks,
+        pendingTasks,
+        productivityScore: tasks.length > 0 ? Math.round((completedTasks / tasks.length) * 100) : 0,
         streak: 0
       }
     })

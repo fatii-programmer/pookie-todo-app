@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
+import { getUser } from '@/lib/db'
+import { verifyPassword, createToken } from '@/lib/auth'
 
 export async function POST(request: NextRequest) {
   try {
@@ -11,32 +13,36 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Call the backend API for authentication
-    const backendUrl = process.env.BACKEND_URL || 'https://pookie-todo-backend.vercel.app'
-    const res = await fetch(`${backendUrl}/api/auth/login`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ email, password }),
-    })
+    // Get user from database
+    const user = await getUser(email)
 
-    const data = await res.json()
-
-    if (!res.ok) {
+    if (!user) {
       return NextResponse.json(
-        { error: data.detail || 'Invalid credentials' },
-        { status: res.status }
+        { error: 'Invalid credentials' },
+        { status: 401 }
       )
     }
 
-    // Set auth cookie with the token from backend
+    // Verify password
+    const isValid = await verifyPassword(password, user.passwordHash)
+
+    if (!isValid) {
+      return NextResponse.json(
+        { error: 'Invalid credentials' },
+        { status: 401 }
+      )
+    }
+
+    // Create JWT token
+    const token = await createToken(user.id)
+
+    // Set auth cookie
     const response = NextResponse.json({
       success: true,
-      userId: data.user_id
+      userId: user.id
     })
 
-    response.cookies.set('token', data.token, {
+    response.cookies.set('token', token, {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',

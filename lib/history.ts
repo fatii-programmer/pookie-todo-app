@@ -1,7 +1,11 @@
 import fs from 'fs/promises'
 import path from 'path'
 
-const HISTORY_DIR = process.env.HISTORY_PATH || './history'
+// Use /tmp on Vercel (serverless), or local path for development
+const isVercel = process.env.VERCEL === '1'
+const HISTORY_DIR = isVercel
+  ? '/tmp/history'
+  : (process.env.HISTORY_PATH || './history')
 
 export type ActionType =
   | 'user_signup'
@@ -22,30 +26,57 @@ export interface HistoryEntry {
   metadata?: Record<string, any>
 }
 
+// Global in-memory history for serverless environments
+declare global {
+  var __history: Record<string, HistoryEntry[]> | undefined
+}
+
+let historyCache: Record<string, HistoryEntry[]> = global.__history || {}
+
 async function ensureHistoryDirExists() {
   try {
     await fs.access(HISTORY_DIR)
   } catch {
-    await fs.mkdir(HISTORY_DIR, { recursive: true })
+    try {
+      await fs.mkdir(HISTORY_DIR, { recursive: true })
+    } catch {
+      // Ignore errors on serverless
+    }
   }
 }
 
 async function readHistoryFile(filename: string): Promise<HistoryEntry[]> {
-  await ensureHistoryDirExists()
-  const filePath = path.join(HISTORY_DIR, filename)
+  // Return from cache if available
+  if (historyCache[filename]) {
+    return historyCache[filename]
+  }
 
   try {
+    await ensureHistoryDirExists()
+    const filePath = path.join(HISTORY_DIR, filename)
     const data = await fs.readFile(filePath, 'utf-8')
-    return JSON.parse(data)
+    const entries = JSON.parse(data)
+    historyCache[filename] = entries
+    global.__history = historyCache
+    return entries
   } catch {
+    historyCache[filename] = []
+    global.__history = historyCache
     return []
   }
 }
 
 async function writeHistoryFile(filename: string, entries: HistoryEntry[]) {
-  await ensureHistoryDirExists()
-  const filePath = path.join(HISTORY_DIR, filename)
-  await fs.writeFile(filePath, JSON.stringify(entries, null, 2))
+  historyCache[filename] = entries
+  global.__history = historyCache
+
+  try {
+    await ensureHistoryDirExists()
+    const filePath = path.join(HISTORY_DIR, filename)
+    await fs.writeFile(filePath, JSON.stringify(entries, null, 2))
+  } catch {
+    // Ignore file write errors on serverless
+  }
 }
 
 function generateId(): string {

@@ -3,7 +3,11 @@ import path from 'path'
 import { Task, User } from '@/types'
 import { logAction } from './history'
 
-const DB_PATH = process.env.DATABASE_PATH || './data/tasks.json'
+// Use /tmp on Vercel (serverless), or local path for development
+const isVercel = process.env.VERCEL === '1'
+const DB_PATH = isVercel
+  ? '/tmp/tasks.json'
+  : (process.env.DATABASE_PATH || './data/tasks.json')
 
 interface Database {
   version: string
@@ -15,7 +19,25 @@ interface Database {
   }
 }
 
-let dbCache: Database | null = null
+// Global in-memory database for serverless environments
+// This persists across warm lambda invocations
+declare global {
+  var __db: Database | undefined
+}
+
+let dbCache: Database | null = global.__db || null
+
+function getInitialDb(): Database {
+  return {
+    version: '3.0.0',
+    users: [],
+    tasks: {},
+    metadata: {
+      nextId: {},
+      lastModified: new Date().toISOString(),
+    },
+  }
+}
 
 async function ensureDbExists() {
   try {
@@ -23,32 +45,43 @@ async function ensureDbExists() {
   } catch {
     const dir = path.dirname(DB_PATH)
     await fs.mkdir(dir, { recursive: true })
-    const initialDb: Database = {
-      version: '3.0.0',
-      users: [],
-      tasks: {},
-      metadata: {
-        nextId: {},
-        lastModified: new Date().toISOString(),
-      },
-    }
+    const initialDb = getInitialDb()
     await fs.writeFile(DB_PATH, JSON.stringify(initialDb, null, 2))
   }
 }
 
 async function readDb(): Promise<Database> {
+  // Return cached version if available
   if (dbCache) return dbCache
 
-  await ensureDbExists()
-  const data = await fs.readFile(DB_PATH, 'utf-8')
-  dbCache = JSON.parse(data)
-  return dbCache!
+  try {
+    await ensureDbExists()
+    const data = await fs.readFile(DB_PATH, 'utf-8')
+    dbCache = JSON.parse(data)
+    global.__db = dbCache
+    return dbCache!
+  } catch (error) {
+    // If file operations fail (e.g., on Vercel), use in-memory database
+    console.warn('File system unavailable, using in-memory database')
+    if (!dbCache) {
+      dbCache = getInitialDb()
+      global.__db = dbCache
+    }
+    return dbCache
+  }
 }
 
 async function writeDb(db: Database) {
   db.metadata.lastModified = new Date().toISOString()
   dbCache = db
-  await fs.writeFile(DB_PATH, JSON.stringify(db, null, 2))
+  global.__db = db
+
+  try {
+    await fs.writeFile(DB_PATH, JSON.stringify(db, null, 2))
+  } catch (error) {
+    // On Vercel, file writes may fail but we keep the in-memory version
+    console.warn('Could not write to file system, data stored in memory only')
+  }
 }
 
 export async function getUser(email: string): Promise<User | null> {
