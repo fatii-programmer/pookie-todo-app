@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server'
 import { getSession } from '@/lib/auth'
-import { getTasks } from '@/lib/db'
+import { calculateProductivityStats } from '@/lib/analytics'
 
 export async function GET() {
   try {
@@ -13,20 +13,9 @@ export async function GET() {
       )
     }
 
-    // Get tasks for analytics
-    const tasks = await getTasks(session.userId)
-    const completedTasks = tasks.filter(t => t.completed).length
-    const pendingTasks = tasks.filter(t => !t.completed).length
+    const stats = await calculateProductivityStats(session.userId)
 
-    return NextResponse.json({
-      stats: {
-        totalTasks: tasks.length,
-        completedTasks,
-        pendingTasks,
-        productivityScore: tasks.length > 0 ? Math.round((completedTasks / tasks.length) * 100) : 0,
-        streak: 0
-      }
-    })
+    return NextResponse.json({ stats })
   } catch (error) {
     console.error('Analytics error:', error)
     return NextResponse.json(
