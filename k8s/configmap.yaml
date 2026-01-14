@@ -1,0 +1,23 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pookie-config
+  namespace: pookie-todo
+data:
+  # Storage configuration
+  STORAGE_PATH: "/app/data/tasks.json"
+
+  # Session configuration
+  SESSION_TIMEOUT_MINUTES: "30"
+
+  # Rate limiting
+  RATE_LIMIT_PER_MINUTE: "100"
+
+  # Logging
+  LOG_LEVEL: "INFO"
+
+  # AI backend configuration
+  AI_BACKEND: "openai"
+
+  # Frontend configuration
+  NEXT_PUBLIC_API_URL: "http://backend:8000"

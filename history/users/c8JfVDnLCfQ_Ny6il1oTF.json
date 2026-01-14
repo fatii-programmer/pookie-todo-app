@@ -1,0 +1,12 @@
+[
+  {
+    "id": "1767539248573-9s63it8",
+    "timestamp": "2026-01-04T15:07:28.573Z",
+    "userId": "c8JfVDnLCfQ_Ny6il1oTF",
+    "actionType": "user_signup",
+    "metadata": {
+      "email": "test@example.com",
+      "createdAt": "2026-01-04T15:07:28.572Z"
+    }
+  }
+]

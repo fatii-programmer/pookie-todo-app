@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pookie-pvc
+  namespace: pookie-todo
+spec:
+  accessModes:
+    - ReadWriteMany
+  # Note: ReadWriteMany requires NFS or similar shared storage
+  # For Minikube, use hostPath with single node or change to ReadWriteOnce for testing
+  # For production, use NFS, EFS (AWS), Azure Files, or GCS Filestore
+  storageClassName: standard
+  resources:
+    requests:
+      storage: 1Gi

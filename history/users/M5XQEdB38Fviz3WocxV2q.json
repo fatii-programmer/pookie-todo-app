@@ -1,0 +1,1167 @@
+[
+  {
+    "id": "1767252182918-7l32s2s",
+    "timestamp": "2026-01-01T07:23:02.918Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hlo",
+      "timestamp": "2026-01-01T07:23:02.918Z"
+    }
+  },
+  {
+    "id": "1767252275997-7lu2vv5",
+    "timestamp": "2026-01-01T07:24:35.997Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hlo",
+      "timestamp": "2026-01-01T07:24:35.997Z"
+    }
+  },
+  {
+    "id": "1767252348445-r9m7z9x",
+    "timestamp": "2026-01-01T07:25:48.445Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "timestamp": "2026-01-01T07:25:48.444Z"
+    }
+  },
+  {
+    "id": "1767252529832-r6cj2cn",
+    "timestamp": "2026-01-01T07:28:49.832Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "timestamp": "2026-01-01T07:28:49.832Z"
+    }
+  },
+  {
+    "id": "1767252555621-kkdqc77",
+    "timestamp": "2026-01-01T07:29:15.621Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "timestamp": "2026-01-01T07:29:15.621Z"
+    }
+  },
+  {
+    "id": "1767252858335-q8ow9z6",
+    "timestamp": "2026-01-01T07:34:18.335Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "timestamp": "2026-01-01T07:34:18.335Z"
+    }
+  },
+  {
+    "id": "1767253186982-lx8v8s4",
+    "timestamp": "2026-01-01T07:39:46.982Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "timestamp": "2026-01-01T07:39:46.982Z"
+    }
+  },
+  {
+    "id": "1767253187582-dbpddyh",
+    "timestamp": "2026-01-01T07:39:47.582Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T07:39:47.582Z"
+    }
+  },
+  {
+    "id": "1767253298061-bxll2la",
+    "timestamp": "2026-01-01T07:41:38.061Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "timestamp": "2026-01-01T07:41:38.061Z"
+    }
+  },
+  {
+    "id": "1767253298457-dsy2ok6",
+    "timestamp": "2026-01-01T07:41:38.457Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T07:41:38.457Z"
+    }
+  },
+  {
+    "id": "1767253383038-4ob3hw0",
+    "timestamp": "2026-01-01T07:43:03.038Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "timestamp": "2026-01-01T07:43:03.037Z"
+    }
+  },
+  {
+    "id": "1767253383604-ipyviof",
+    "timestamp": "2026-01-01T07:43:03.604Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T07:43:03.604Z"
+    }
+  },
+  {
+    "id": "1767253538669-esud158",
+    "timestamp": "2026-01-01T07:45:38.669Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "timestamp": "2026-01-01T07:45:38.669Z"
+    }
+  },
+  {
+    "id": "1767253539085-263b058",
+    "timestamp": "2026-01-01T07:45:39.085Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T07:45:39.085Z"
+    }
+  },
+  {
+    "id": "1767253574417-v4buka1",
+    "timestamp": "2026-01-01T07:46:14.417Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hlo",
+      "timestamp": "2026-01-01T07:46:14.417Z"
+    }
+  },
+  {
+    "id": "1767253574821-yzymcsb",
+    "timestamp": "2026-01-01T07:46:14.821Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hlo",
+      "timestamp": "2026-01-01T07:46:14.821Z"
+    }
+  },
+  {
+    "id": "1767253738940-nddmdau",
+    "timestamp": "2026-01-01T07:48:58.940Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "timestamp": "2026-01-01T07:48:58.940Z"
+    }
+  },
+  {
+    "id": "1767253739379-y720el6",
+    "timestamp": "2026-01-01T07:48:59.379Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T07:48:59.378Z"
+    }
+  },
+  {
+    "id": "1767254117862-vz17ua8",
+    "timestamp": "2026-01-01T07:55:17.862Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "timestamp": "2026-01-01T07:55:17.862Z"
+    }
+  },
+  {
+    "id": "1767254118361-5ecy55q",
+    "timestamp": "2026-01-01T07:55:18.361Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T07:55:18.361Z"
+    }
+  },
+  {
+    "id": "1767254495690-459qytd",
+    "timestamp": "2026-01-01T08:01:35.690Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hlo",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:01:35.690Z"
+    }
+  },
+  {
+    "id": "1767254496117-lgxmcpd",
+    "timestamp": "2026-01-01T08:01:36.117Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hlo",
+      "timestamp": "2026-01-01T08:01:36.117Z"
+    }
+  },
+  {
+    "id": "1767254557733-kotlqun",
+    "timestamp": "2026-01-01T08:02:37.733Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hlo",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:02:37.733Z"
+    }
+  },
+  {
+    "id": "1767254558116-x33q1mq",
+    "timestamp": "2026-01-01T08:02:38.116Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hlo",
+      "timestamp": "2026-01-01T08:02:38.116Z"
+    }
+  },
+  {
+    "id": "1767254737954-2f6r4kh",
+    "timestamp": "2026-01-01T08:05:37.954Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hlo",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:05:37.954Z"
+    }
+  },
+  {
+    "id": "1767254739921-jdbadg0",
+    "timestamp": "2026-01-01T08:05:39.921Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hlo",
+      "timestamp": "2026-01-01T08:05:39.921Z"
+    }
+  },
+  {
+    "id": "1767255063791-3r4dt9p",
+    "timestamp": "2026-01-01T08:11:03.791Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:11:03.791Z"
+    }
+  },
+  {
+    "id": "1767255064233-5gmryrh",
+    "timestamp": "2026-01-01T08:11:04.233Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T08:11:04.233Z"
+    }
+  },
+  {
+    "id": "1767255151052-cm5ibsz",
+    "timestamp": "2026-01-01T08:12:31.052Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hlo",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:12:31.052Z"
+    }
+  },
+  {
+    "id": "1767255151414-csjx8eh",
+    "timestamp": "2026-01-01T08:12:31.414Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hlo",
+      "timestamp": "2026-01-01T08:12:31.414Z"
+    }
+  },
+  {
+    "id": "1767255401455-h5cdonq",
+    "timestamp": "2026-01-01T08:16:41.455Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:16:41.455Z"
+    }
+  },
+  {
+    "id": "1767255401937-g59epkd",
+    "timestamp": "2026-01-01T08:16:41.937Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T08:16:41.937Z"
+    }
+  },
+  {
+    "id": "1767255882218-6afi0e5",
+    "timestamp": "2026-01-01T08:24:42.218Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:24:42.218Z"
+    }
+  },
+  {
+    "id": "1767255882597-49ftqjc",
+    "timestamp": "2026-01-01T08:24:42.597Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T08:24:42.597Z"
+    }
+  },
+  {
+    "id": "1767255911320-67u9tgy",
+    "timestamp": "2026-01-01T08:25:11.320Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:25:11.320Z"
+    }
+  },
+  {
+    "id": "1767255911786-dmh5eoi",
+    "timestamp": "2026-01-01T08:25:11.786Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T08:25:11.786Z"
+    }
+  },
+  {
+    "id": "1767255966798-wkg8jea",
+    "timestamp": "2026-01-01T08:26:06.798Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "ho",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:26:06.798Z"
+    }
+  },
+  {
+    "id": "1767255967186-6l02d4u",
+    "timestamp": "2026-01-01T08:26:07.186Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "ho",
+      "timestamp": "2026-01-01T08:26:07.185Z"
+    }
+  },
+  {
+    "id": "1767255978627-8yrdoet",
+    "timestamp": "2026-01-01T08:26:18.627Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "user_logout",
+    "metadata": {
+      "timestamp": "2026-01-01T08:26:18.627Z"
+    }
+  },
+  {
+    "id": "1767255985175-khgig1r",
+    "timestamp": "2026-01-01T08:26:25.175Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "user_login",
+    "metadata": {
+      "email": "designerfatii@gmail.com"
+    }
+  },
+  {
+    "id": "1767255991360-46s65t2",
+    "timestamp": "2026-01-01T08:26:31.360Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:26:31.360Z"
+    }
+  },
+  {
+    "id": "1767255991915-1lgti97",
+    "timestamp": "2026-01-01T08:26:31.915Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "Invalid OpenAI API key. Please check your .env.local file.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T08:26:31.915Z"
+    }
+  },
+  {
+    "id": "1767256747858-nawhoke",
+    "timestamp": "2026-01-01T08:39:07.858Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "user_login",
+    "metadata": {
+      "email": "designerfatii@gmail.com"
+    }
+  },
+  {
+    "id": "1767256753370-hqlcno0",
+    "timestamp": "2026-01-01T08:39:13.371Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:39:13.370Z"
+    }
+  },
+  {
+    "id": "1767256753384-vgt7y7h",
+    "timestamp": "2026-01-01T08:39:13.384Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T08:39:13.384Z"
+    }
+  },
+  {
+    "id": "1767256797938-0zw7hig",
+    "timestamp": "2026-01-01T08:39:57.938Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hlo",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:39:57.938Z"
+    }
+  },
+  {
+    "id": "1767256797947-oo8kfzc",
+    "timestamp": "2026-01-01T08:39:57.947Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hlo",
+      "timestamp": "2026-01-01T08:39:57.947Z"
+    }
+  },
+  {
+    "id": "1767256822552-urvq3zz",
+    "timestamp": "2026-01-01T08:40:22.552Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:40:22.552Z"
+    }
+  },
+  {
+    "id": "1767256822561-8zajfa1",
+    "timestamp": "2026-01-01T08:40:22.561Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T08:40:22.561Z"
+    }
+  },
+  {
+    "id": "1767256839599-1awb4w8",
+    "timestamp": "2026-01-01T08:40:39.599Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hlo",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:40:39.599Z"
+    }
+  },
+  {
+    "id": "1767256839610-o3nslw3",
+    "timestamp": "2026-01-01T08:40:39.610Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hlo",
+      "timestamp": "2026-01-01T08:40:39.610Z"
+    }
+  },
+  {
+    "id": "1767257038316-uhwnpsd",
+    "timestamp": "2026-01-01T08:43:58.316Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:43:58.316Z"
+    }
+  },
+  {
+    "id": "1767257038329-0g7w83m",
+    "timestamp": "2026-01-01T08:43:58.329Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T08:43:58.329Z"
+    }
+  },
+  {
+    "id": "1767257417829-raiuh3m",
+    "timestamp": "2026-01-01T08:50:17.829Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hello",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:50:17.829Z"
+    }
+  },
+  {
+    "id": "1767257417843-rbjjjlj",
+    "timestamp": "2026-01-01T08:50:17.843Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hello",
+      "timestamp": "2026-01-01T08:50:17.843Z"
+    }
+  },
+  {
+    "id": "1767257519150-5ho5y00",
+    "timestamp": "2026-01-01T08:51:59.150Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:51:59.150Z"
+    }
+  },
+  {
+    "id": "1767257519164-3juzydd",
+    "timestamp": "2026-01-01T08:51:59.164Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T08:51:59.164Z"
+    }
+  },
+  {
+    "id": "1767257555817-hv1u9xj",
+    "timestamp": "2026-01-01T08:52:35.817Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:52:35.817Z"
+    }
+  },
+  {
+    "id": "1767257555825-qutsh1k",
+    "timestamp": "2026-01-01T08:52:35.825Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T08:52:35.825Z"
+    }
+  },
+  {
+    "id": "1767257927052-cz61eip",
+    "timestamp": "2026-01-01T08:58:47.052Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "user_login",
+    "metadata": {
+      "email": "designerfatii@gmail.com"
+    }
+  },
+  {
+    "id": "1767257933362-aunri16",
+    "timestamp": "2026-01-01T08:58:53.362Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T08:58:53.361Z"
+    }
+  },
+  {
+    "id": "1767257933379-rjyfzuh",
+    "timestamp": "2026-01-01T08:58:53.379Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T08:58:53.379Z"
+    }
+  },
+  {
+    "id": "1767258304069-y93j8yg",
+    "timestamp": "2026-01-01T09:05:04.069Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T09:05:04.069Z"
+    }
+  },
+  {
+    "id": "1767258304076-naf9vf1",
+    "timestamp": "2026-01-01T09:05:04.076Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T09:05:04.076Z"
+    }
+  },
+  {
+    "id": "1767258557798-l0ck7lq",
+    "timestamp": "2026-01-01T09:09:17.798Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T09:09:17.798Z"
+    }
+  },
+  {
+    "id": "1767258557810-x2zan13",
+    "timestamp": "2026-01-01T09:09:17.810Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T09:09:17.810Z"
+    }
+  },
+  {
+    "id": "1767258987526-m3bqkgu",
+    "timestamp": "2026-01-01T09:16:27.526Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T09:16:27.525Z"
+    }
+  },
+  {
+    "id": "1767258987538-au81avc",
+    "timestamp": "2026-01-01T09:16:27.538Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T09:16:27.538Z"
+    }
+  },
+  {
+    "id": "1767259103651-qoeadxn",
+    "timestamp": "2026-01-01T09:18:23.651Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hello",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T09:18:23.650Z"
+    }
+  },
+  {
+    "id": "1767259103658-83u0jdg",
+    "timestamp": "2026-01-01T09:18:23.658Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hello",
+      "timestamp": "2026-01-01T09:18:23.658Z"
+    }
+  },
+  {
+    "id": "1767259638163-sahhb1t",
+    "timestamp": "2026-01-01T09:27:18.163Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T09:27:18.163Z"
+    }
+  },
+  {
+    "id": "1767259638173-4kdpdbc",
+    "timestamp": "2026-01-01T09:27:18.173Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T09:27:18.173Z"
+    }
+  },
+  {
+    "id": "1767260190856-mtbjgn0",
+    "timestamp": "2026-01-01T09:36:30.856Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "user_login",
+    "metadata": {
+      "email": "designerfatii@gmail.com"
+    }
+  },
+  {
+    "id": "1767260195242-hyjrxmb",
+    "timestamp": "2026-01-01T09:36:35.242Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T09:36:35.242Z"
+    }
+  },
+  {
+    "id": "1767260195257-p59tcl8",
+    "timestamp": "2026-01-01T09:36:35.257Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T09:36:35.257Z"
+    }
+  },
+  {
+    "id": "1767260545462-lcw6zsj",
+    "timestamp": "2026-01-01T09:42:25.462Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T09:42:25.462Z"
+    }
+  },
+  {
+    "id": "1767260545478-5c9mojk",
+    "timestamp": "2026-01-01T09:42:25.478Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hi",
+      "timestamp": "2026-01-01T09:42:25.477Z"
+    }
+  },
+  {
+    "id": "1767260783059-sktzox4",
+    "timestamp": "2026-01-01T09:46:23.059Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hello",
+      "contextSize": 5,
+      "timestamp": "2026-01-01T09:46:23.058Z"
+    }
+  },
+  {
+    "id": "1767260783074-y3rk1gj",
+    "timestamp": "2026-01-01T09:46:23.074Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI API key format is invalid. Should start with sk-",
+      "userMessage": "hello",
+      "timestamp": "2026-01-01T09:46:23.074Z"
+    }
+  },
+  {
+    "id": "1767537675693-chvf3mp",
+    "timestamp": "2026-01-04T14:41:15.693Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "show my task",
+      "contextSize": 5,
+      "timestamp": "2026-01-04T14:41:15.693Z"
+    }
+  },
+  {
+    "id": "1767537676946-zelucwg",
+    "timestamp": "2026-01-04T14:41:16.946Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI Error: 404 The model `gpt-4-turbo-preview` does not exist or you do not have access to it.",
+      "userMessage": "show my task",
+      "timestamp": "2026-01-04T14:41:16.946Z"
+    }
+  },
+  {
+    "id": "1767537731625-sb6k0ml",
+    "timestamp": "2026-01-04T14:42:11.625Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-04T14:42:11.624Z"
+    }
+  },
+  {
+    "id": "1767537732549-84h3qiz",
+    "timestamp": "2026-01-04T14:42:12.549Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI Error: 404 The model `gpt-4-turbo-preview` does not exist or you do not have access to it.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-04T14:42:12.549Z"
+    }
+  },
+  {
+    "id": "1767538795578-6xqq3rr",
+    "timestamp": "2026-01-04T14:59:55.578Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-04T14:59:55.578Z"
+    }
+  },
+  {
+    "id": "1767538798836-xqe62qc",
+    "timestamp": "2026-01-04T14:59:58.837Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI Error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-04T14:59:58.836Z"
+    }
+  },
+  {
+    "id": "1767538947528-06zq39s",
+    "timestamp": "2026-01-04T15:02:27.528Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hlo",
+      "contextSize": 5,
+      "timestamp": "2026-01-04T15:02:27.527Z"
+    }
+  },
+  {
+    "id": "1767538951315-ss2a0qd",
+    "timestamp": "2026-01-04T15:02:31.315Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI Error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.",
+      "userMessage": "hlo",
+      "timestamp": "2026-01-04T15:02:31.315Z"
+    }
+  },
+  {
+    "id": "1767539351185-piei26t",
+    "timestamp": "2026-01-04T15:09:11.185Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-04T15:09:11.185Z"
+    }
+  },
+  {
+    "id": "1767539355084-fcpyik2",
+    "timestamp": "2026-01-04T15:09:15.084Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI Error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-04T15:09:15.084Z"
+    }
+  },
+  {
+    "id": "1768291690664-zewtfvw",
+    "timestamp": "2026-01-13T08:08:10.664Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "user_login",
+    "metadata": {
+      "email": "designerfatii@gmail.com"
+    }
+  },
+  {
+    "id": "1768292005833-ttdctem",
+    "timestamp": "2026-01-13T08:13:25.833Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "user",
+      "content": "hi",
+      "contextSize": 5,
+      "timestamp": "2026-01-13T08:13:25.833Z"
+    }
+  },
+  {
+    "id": "1768292009940-37xdxd1",
+    "timestamp": "2026-01-13T08:13:29.940Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "chatbot_message",
+    "metadata": {
+      "role": "error",
+      "content": "OpenAI Error: 429 You exceeded your current quota, please check your plan and billing details. For more information on this error, read the docs: https://platform.openai.com/docs/guides/error-codes/api-errors.",
+      "userMessage": "hi",
+      "timestamp": "2026-01-13T08:13:29.940Z"
+    }
+  },
+  {
+    "id": "1768377628701-kwu8r1k",
+    "timestamp": "2026-01-14T08:00:28.701Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "user_logout",
+    "metadata": {
+      "timestamp": "2026-01-14T08:00:28.700Z"
+    }
+  },
+  {
+    "id": "1768378039011-djtw2g0",
+    "timestamp": "2026-01-14T08:07:19.011Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "user_login",
+    "metadata": {
+      "email": "designerfatii@gmail.com"
+    }
+  },
+  {
+    "id": "1768378150916-eids6p3",
+    "timestamp": "2026-01-14T08:09:10.916Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "todo_created",
+    "todoId": 8,
+    "metadata": {
+      "description": "mine new book",
+      "priority": "high",
+      "tags": [
+        "book"
+      ]
+    }
+  },
+  {
+    "id": "1768378174378-e3zdaef",
+    "timestamp": "2026-01-14T08:09:34.378Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "todo_completed",
+    "todoId": 2,
+    "metadata": {
+      "description": "hlo"
+    }
+  },
+  {
+    "id": "1768378174556-bv2nbno",
+    "timestamp": "2026-01-14T08:09:34.556Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "todo_uncompleted",
+    "todoId": 2,
+    "metadata": {
+      "description": "hlo"
+    }
+  },
+  {
+    "id": "1768378175512-c5kchby",
+    "timestamp": "2026-01-14T08:09:35.512Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "todo_completed",
+    "todoId": 2,
+    "metadata": {
+      "description": "hlo"
+    }
+  },
+  {
+    "id": "1768378180922-dgbp83a",
+    "timestamp": "2026-01-14T08:09:40.922Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "todo_completed",
+    "todoId": 4,
+    "metadata": {
+      "description": "hlo kesy ho"
+    }
+  },
+  {
+    "id": "1768378183752-rari3cw",
+    "timestamp": "2026-01-14T08:09:43.752Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "todo_completed",
+    "todoId": 6,
+    "metadata": {
+      "description": "my book"
+    }
+  },
+  {
+    "id": "1768378186537-t5cvc94",
+    "timestamp": "2026-01-14T08:09:46.537Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "todo_completed",
+    "todoId": 8,
+    "metadata": {
+      "description": "mine new book"
+    }
+  }
+]

@@ -1,0 +1,142 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --font-inter: 'Inter Variable', -apple-system, sans-serif;
+    --font-cal-sans: 'Cal Sans', 'Inter Variable', sans-serif;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-pookie-gradient font-sans text-neutral-900;
+    font-feature-settings: 'rlig' 1, 'calt' 1;
+  }
+
+  /* Reduced motion support */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer utilities {
+  /* Glass effect utility */
+  .glass {
+    @apply bg-white/70 backdrop-blur-md border border-white/40;
+  }
+
+  .glass-strong {
+    @apply bg-white/80 backdrop-blur-lg border border-white/60;
+  }
+
+  .glass-light {
+    @apply bg-white/50 backdrop-blur-xl border border-white/20;
+  }
+
+  /* Text gradients */
+  .text-gradient-primary {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-lavender-500 to-mint-500;
+  }
+
+  /* Custom scrollbar */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hover lift effect */
+  .hover-lift {
+    @apply transition-transform duration-200 hover:-translate-y-1;
+  }
+}
+
+/* Shimmer loading animation */
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.skeleton {
+  @apply relative overflow-hidden bg-neutral-200;
+}
+
+.skeleton::after {
+  content: '';
+  @apply absolute inset-0;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  animation: shimmer 1.5s infinite;
+}
+
+/* Floating shapes animation */
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(180deg);
+  }
+}
+
+.float-animation {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse-soft {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.8;
+  }
+}
+
+.pulse-soft {
+  animation: pulse-soft 3s ease-in-out infinite;
+}
+
+/* Bounce animation for typing indicator */
+@keyframes bounce-dot {
+  0%,
+  80%,
+  100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-8px);
+  }
+}
+
+.bounce-dot {
+  animation: bounce-dot 0.6s ease-in-out infinite;
+}
+
+.bounce-dot-delay-1 {
+  animation-delay: 0.15s;
+}
+
+.bounce-dot-delay-2 {
+  animation-delay: 0.3s;
+}

@@ -1,0 +1,126 @@
+# Default values for pookie-todo Helm chart
+
+# Number of replicas for each service
+replicaCount:
+  frontend: 2
+  backend: 2
+
+# Image configuration
+image:
+  frontend:
+    repository: pookie-frontend
+    tag: "latest"
+    pullPolicy: IfNotPresent
+  backend:
+    repository: pookie-backend
+    tag: "latest"
+    pullPolicy: IfNotPresent
+
+# Service configuration
+service:
+  frontend:
+    type: ClusterIP
+    port: 3000
+  backend:
+    type: ClusterIP
+    port: 8000
+
+# Ingress configuration
+ingress:
+  enabled: true
+  className: nginx
+  annotations: {}
+  hosts:
+    - host: pookie.local
+      paths:
+        - path: /api
+          pathType: Prefix
+          backend: backend
+        - path: /
+          pathType: Prefix
+          backend: frontend
+  tls: []
+
+# Persistent storage
+persistence:
+  enabled: true
+  accessMode: ReadWriteMany
+  size: 1Gi
+  storageClass: "standard"
+
+# Resource limits
+resources:
+  frontend:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+  backend:
+    requests:
+      cpu: 100m
+      memory: 128Mi
+    limits:
+      cpu: 500m
+      memory: 512Mi
+
+# Application configuration (ConfigMap)
+config:
+  storagePath: "/app/data/tasks.json"
+  sessionTimeoutMinutes: "30"
+  rateLimitPerMinute: "100"
+  logLevel: "INFO"
+  aiBackend: "openai"
+  nextPublicApiUrl: "http://backend:8000"
+
+# Secrets (provide via --set or separate values file)
+secrets:
+  jwtSecret: ""
+  openaiApiKey: ""
+
+# Security context
+securityContext:
+  runAsNonRoot: true
+  runAsUser: 1000
+  runAsGroup: 1000
+  allowPrivilegeEscalation: false
+  capabilities:
+    drop:
+    - ALL
+  readOnlyRootFilesystem: false
+
+# Health probes
+probes:
+  liveness:
+    enabled: true
+    initialDelaySeconds: 30
+    periodSeconds: 10
+    timeoutSeconds: 3
+    failureThreshold: 3
+  readiness:
+    enabled: true
+    initialDelaySeconds: 5
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 2
+  startup:
+    enabled: true
+    initialDelaySeconds: 0
+    periodSeconds: 5
+    timeoutSeconds: 3
+    failureThreshold: 12
+
+# Rolling update strategy
+strategy:
+  type: RollingUpdate
+  rollingUpdate:
+    maxSurge: 1
+    maxUnavailable: 0
+
+# Autoscaling (disabled by default)
+autoscaling:
+  enabled: false
+  minReplicas: 2
+  maxReplicas: 10
+  targetCPUUtilizationPercentage: 80

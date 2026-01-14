@@ -1,0 +1,18 @@
+apiVersion: v2
+name: pookie-todo
+description: AI-powered conversational todo application with pookie aesthetic
+type: application
+version: 4.0.0
+appVersion: "3.0.0"
+keywords:
+  - todo
+  - ai
+  - chatbot
+  - task-management
+  - pookie
+maintainers:
+  - name: Claude Code
+    email: noreply@anthropic.com
+home: https://github.com/pookie-todo
+sources:
+  - https://github.com/pookie-todo

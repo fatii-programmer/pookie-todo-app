@@ -1,0 +1,16 @@
+{{- if .Values.persistence.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: pookie-pvc
+  namespace: {{ include "pookie-todo.namespace" . }}
+  labels:
+    {{- include "pookie-todo.labels" . | nindent 4 }}
+spec:
+  accessModes:
+    - {{ .Values.persistence.accessMode }}
+  storageClassName: {{ .Values.persistence.storageClass | quote }}
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size }}
+{{- end }}

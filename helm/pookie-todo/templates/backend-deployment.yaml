@@ -1,0 +1,108 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: {{ include "pookie-todo.namespace" . }}
+  labels:
+    app: backend
+    {{- include "pookie-todo.labels" . | nindent 4 }}
+spec:
+  replicas: {{ .Values.replicaCount.backend }}
+  strategy:
+    type: {{ .Values.strategy.type }}
+    {{- if eq .Values.strategy.type "RollingUpdate" }}
+    rollingUpdate:
+      maxSurge: {{ .Values.strategy.rollingUpdate.maxSurge }}
+      maxUnavailable: {{ .Values.strategy.rollingUpdate.maxUnavailable }}
+    {{- end }}
+  selector:
+    matchLabels:
+      {{- include "pookie-todo.backend.selectorLabels" . | nindent 6 }}
+  template:
+    metadata:
+      labels:
+        {{- include "pookie-todo.backend.selectorLabels" . | nindent 8 }}
+    spec:
+      containers:
+      - name: backend
+        image: "{{ .Values.image.backend.repository }}:{{ .Values.image.backend.tag }}"
+        imagePullPolicy: {{ .Values.image.backend.pullPolicy }}
+        securityContext:
+          {{- toYaml .Values.securityContext | nindent 10 }}
+        ports:
+        - containerPort: {{ .Values.service.backend.port }}
+        envFrom:
+        - configMapRef:
+            name: pookie-config
+        env:
+        - name: JWT_SECRET
+          valueFrom:
+            secretKeyRef:
+              name: pookie-secrets
+              key: jwt-secret
+        - name: OPENAI_API_KEY
+          valueFrom:
+            secretKeyRef:
+              name: pookie-secrets
+              key: openai-key
+        resources:
+          {{- toYaml .Values.resources.backend | nindent 10 }}
+        {{- if .Values.probes.liveness.enabled }}
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: {{ .Values.service.backend.port }}
+          initialDelaySeconds: {{ .Values.probes.liveness.initialDelaySeconds }}
+          periodSeconds: {{ .Values.probes.liveness.periodSeconds }}
+          timeoutSeconds: {{ .Values.probes.liveness.timeoutSeconds }}
+          failureThreshold: {{ .Values.probes.liveness.failureThreshold }}
+        {{- end }}
+        {{- if .Values.probes.readiness.enabled }}
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: {{ .Values.service.backend.port }}
+          initialDelaySeconds: {{ .Values.probes.readiness.initialDelaySeconds }}
+          periodSeconds: {{ .Values.probes.readiness.periodSeconds }}
+          timeoutSeconds: {{ .Values.probes.readiness.timeoutSeconds }}
+          failureThreshold: {{ .Values.probes.readiness.failureThreshold }}
+        {{- end }}
+        {{- if .Values.probes.startup.enabled }}
+        startupProbe:
+          httpGet:
+            path: /health
+            port: {{ .Values.service.backend.port }}
+          initialDelaySeconds: {{ .Values.probes.startup.initialDelaySeconds }}
+          periodSeconds: {{ .Values.probes.startup.periodSeconds }}
+          timeoutSeconds: {{ .Values.probes.startup.timeoutSeconds }}
+          failureThreshold: {{ .Values.probes.startup.failureThreshold }}
+        {{- end }}
+        {{- if .Values.persistence.enabled }}
+        volumeMounts:
+        - name: data
+          mountPath: /app/data
+        {{- end }}
+      {{- if .Values.persistence.enabled }}
+      volumes:
+      - name: data
+        persistentVolumeClaim:
+          claimName: pookie-pvc
+      {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: {{ include "pookie-todo.namespace" . }}
+  labels:
+    app: backend
+    {{- include "pookie-todo.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.backend.type }}
+  selector:
+    {{- include "pookie-todo.backend.selectorLabels" . | nindent 4 }}
+  ports:
+  - port: {{ .Values.service.backend.port }}
+    targetPort: {{ .Values.service.backend.port }}
+    protocol: TCP
+    name: http

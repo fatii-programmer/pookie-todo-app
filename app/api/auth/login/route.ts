@@ -1,0 +1,65 @@
+import { NextRequest, NextResponse } from 'next/server'
+import { getUser } from '@/lib/db'
+import { verifyPassword, createToken } from '@/lib/auth'
+import { logAction } from '@/lib/history'
+
+export async function POST(request: NextRequest) {
+  try {
+    const { email, password } = await request.json()
+
+    if (!email || !password) {
+      return NextResponse.json(
+        { error: 'Email and password are required' },
+        { status: 400 }
+      )
+    }
+
+    // Find user
+    const user = await getUser(email)
+    if (!user) {
+      return NextResponse.json(
+        { error: 'Invalid credentials' },
+        { status: 401 }
+      )
+    }
+
+    // Verify password
+    const isValid = await verifyPassword(password, user.passwordHash)
+    if (!isValid) {
+      return NextResponse.json(
+        { error: 'Invalid credentials' },
+        { status: 401 }
+      )
+    }
+
+    // Create JWT token
+    const token = await createToken(user.id)
+
+    // Log login action
+    await logAction('user_login', user.id, undefined, {
+      email: user.email,
+    })
+
+    // Set auth cookie
+    const res = NextResponse.json({
+      success: true,
+      userId: user.id
+    })
+
+    res.cookies.set('token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 60 * 60 * 24 * 7, // 7 days
+      path: '/',
+    })
+
+    return res
+  } catch (error) {
+    console.error('Login error:', error)
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 }
+    )
+  }
+}

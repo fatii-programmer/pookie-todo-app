@@ -1,0 +1,47 @@
+# Development environment overrides for Minikube
+
+replicaCount:
+  frontend: 1
+  backend: 1
+
+image:
+  frontend:
+    tag: "latest"
+    pullPolicy: Never  # Use local images in Minikube
+  backend:
+    tag: "latest"
+    pullPolicy: Never
+
+service:
+  frontend:
+    type: NodePort
+  backend:
+    type: ClusterIP
+
+ingress:
+  enabled: true
+  hosts:
+    - host: pookie.local
+
+persistence:
+  storageClass: "standard"
+  accessMode: ReadWriteOnce  # Minikube single node, RWO is sufficient
+
+resources:
+  frontend:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+  backend:
+    requests:
+      cpu: 50m
+      memory: 64Mi
+    limits:
+      cpu: 200m
+      memory: 256Mi
+
+config:
+  logLevel: "DEBUG"

@@ -1,0 +1,60 @@
+Thank you for installing {{ .Chart.Name }}!
+
+Your release is named {{ .Release.Name }}.
+
+🚀 Pookie Todo has been deployed!
+
+To get started:
+
+1. Check the deployment status:
+   kubectl get pods -n {{ include "pookie-todo.namespace" . }}
+
+2. Wait for pods to be ready:
+   kubectl wait --for=condition=available --timeout=300s deployment/backend -n {{ include "pookie-todo.namespace" . }}
+   kubectl wait --for=condition=available --timeout=300s deployment/frontend -n {{ include "pookie-todo.namespace" . }}
+
+3. Access the application:
+
+{{- if .Values.ingress.enabled }}
+{{- range .Values.ingress.hosts }}
+   - Add to /etc/hosts: {{ .host }}
+   - Open browser: http://{{ .host }}
+{{- end }}
+{{- else if eq .Values.service.frontend.type "NodePort" }}
+   - Get NodePort:
+     kubectl get svc frontend -n {{ include "pookie-todo.namespace" . }}
+
+   - Access via Minikube:
+     minikube service frontend -n {{ include "pookie-todo.namespace" . }}
+{{- else }}
+   - Port forward to frontend:
+     kubectl port-forward -n {{ include "pookie-todo.namespace" . }} service/frontend 3000:3000
+
+   - Open browser: http://localhost:3000
+{{- end }}
+
+4. View logs:
+   kubectl logs -f deployment/backend -n {{ include "pookie-todo.namespace" . }}
+   kubectl logs -f deployment/frontend -n {{ include "pookie-todo.namespace" . }}
+
+5. Check health:
+   kubectl port-forward -n {{ include "pookie-todo.namespace" . }} service/backend 8000:8000
+   curl http://localhost:8000/health
+
+📝 Configuration:
+   - Namespace: {{ include "pookie-todo.namespace" . }}
+   - Frontend replicas: {{ .Values.replicaCount.frontend }}
+   - Backend replicas: {{ .Values.replicaCount.backend }}
+   - Storage: {{ if .Values.persistence.enabled }}{{ .Values.persistence.size }} ({{ .Values.persistence.accessMode }}){{ else }}Disabled{{ end }}
+   - AI Backend: {{ .Values.config.aiBackend }}
+
+⚠️  Important:
+{{- if not .Values.secrets.jwtSecret }}
+   - JWT_SECRET not set! Create secret manually:
+     kubectl create secret generic pookie-secrets \
+       --from-literal=jwt-secret=<your-secret> \
+       --from-literal=openai-key=<your-key> \
+       -n {{ include "pookie-todo.namespace" . }}
+{{- end }}
+
+For more information, visit: {{ .Chart.Home }}
