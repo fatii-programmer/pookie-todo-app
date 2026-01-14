@@ -25,7 +25,7 @@ declare global {
   var __db: Database | undefined
 }
 
-let dbCache: Database | null = global.__db || null
+let dbCache: Database | undefined = global.__db
 
 function getInitialDb(): Database {
   return {
@@ -57,15 +57,18 @@ async function readDb(): Promise<Database> {
   try {
     await ensureDbExists()
     const data = await fs.readFile(DB_PATH, 'utf-8')
-    dbCache = JSON.parse(data)
-    global.__db = dbCache
-    return dbCache!
+    const db: Database = JSON.parse(data)
+    dbCache = db
+    global.__db = db
+    return db
   } catch (error) {
     // If file operations fail (e.g., on Vercel), use in-memory database
     console.warn('File system unavailable, using in-memory database')
     if (!dbCache) {
-      dbCache = getInitialDb()
-      global.__db = dbCache
+      const db = getInitialDb()
+      dbCache = db
+      global.__db = db
+      return db
     }
     return dbCache
   }

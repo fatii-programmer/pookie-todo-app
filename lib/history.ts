@@ -118,26 +118,30 @@ export async function logAction(
 
 // Log to per-user history file
 async function logUserAction(userId: string, entry: HistoryEntry) {
-  const userHistoryDir = path.join(HISTORY_DIR, 'users')
-
   try {
-    await fs.access(userHistoryDir)
+    const userHistoryDir = path.join(HISTORY_DIR, 'users')
+
+    try {
+      await fs.access(userHistoryDir)
+    } catch {
+      await fs.mkdir(userHistoryDir, { recursive: true })
+    }
+
+    const userFilePath = path.join(userHistoryDir, `${userId}.json`)
+
+    let userEntries: HistoryEntry[] = []
+    try {
+      const data = await fs.readFile(userFilePath, 'utf-8')
+      userEntries = JSON.parse(data)
+    } catch {
+      // File doesn't exist yet, start with empty array
+    }
+
+    userEntries.push(entry)
+    await fs.writeFile(userFilePath, JSON.stringify(userEntries, null, 2))
   } catch {
-    await fs.mkdir(userHistoryDir, { recursive: true })
+    // Ignore file system errors on serverless
   }
-
-  const userFilePath = path.join(userHistoryDir, `${userId}.json`)
-
-  let userEntries: HistoryEntry[] = []
-  try {
-    const data = await fs.readFile(userFilePath, 'utf-8')
-    userEntries = JSON.parse(data)
-  } catch {
-    // File doesn't exist yet, start with empty array
-  }
-
-  userEntries.push(entry)
-  await fs.writeFile(userFilePath, JSON.stringify(userEntries, null, 2))
 }
 
 export async function getLoginHistory(userId?: string): Promise<HistoryEntry[]> {
