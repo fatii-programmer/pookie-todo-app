@@ -1,0 +1,44 @@
+[
+  {
+    "id": "notif-1770106507479-ss8zbay",
+    "timestamp": "2026-02-03T08:15:07.479Z",
+    "type": "login_google",
+    "status": "pending",
+    "message": "User designerfatii@gmail.com logged in via Google",
+    "data": {
+      "email": "designerfatii@gmail.com",
+      "provider": "google",
+      "userId": "M5XQEdB38Fviz3WocxV2q",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+    },
+    "channels": []
+  },
+  {
+    "id": "notif-1770108385372-pe15jpq",
+    "timestamp": "2026-02-03T08:46:25.372Z",
+    "type": "login_google",
+    "status": "pending",
+    "message": "User designerfatii@gmail.com logged in via Google",
+    "data": {
+      "email": "designerfatii@gmail.com",
+      "provider": "google",
+      "userId": "M5XQEdB38Fviz3WocxV2q",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+    },
+    "channels": []
+  },
+  {
+    "id": "notif-1770307725023-gbiwfe4",
+    "timestamp": "2026-02-05T16:08:45.023Z",
+    "type": "login_google",
+    "status": "pending",
+    "message": "User designerfatii@gmail.com logged in via Google",
+    "data": {
+      "email": "designerfatii@gmail.com",
+      "provider": "google",
+      "userId": "M5XQEdB38Fviz3WocxV2q",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+    },
+    "channels": []
+  }
+]

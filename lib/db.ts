@@ -92,6 +92,16 @@ export async function getUser(email: string): Promise<User | null> {
   return db.users.find(u => u.email === email) || null
 }
 
+export async function getUserById(userId: string): Promise<User | null> {
+  const db = await readDb()
+  return db.users.find(u => u.id === userId) || null
+}
+
+export async function getAllUsers(): Promise<User[]> {
+  const db = await readDb()
+  return db.users
+}
+
 export async function createUser(user: User): Promise<void> {
   const db = await readDb()
   db.users.push(user)

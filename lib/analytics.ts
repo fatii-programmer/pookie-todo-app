@@ -44,7 +44,9 @@ function getDateKey(date: Date): string {
 }
 
 function getDayName(date: Date): string {
-  return date.toLocaleDateString('en-US', { weekday: 'long' })
+  // Use consistent day names to avoid locale-dependent variations
+  const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday']
+  return days[date.getDay()]
 }
 
 function isToday(date: Date): boolean {
@@ -247,7 +249,7 @@ export async function calculateProductivityStats(userId: string): Promise<Produc
     .slice(-10)
     .reverse()
     .map(h => ({
-      date: new Date(h.timestamp).toLocaleString(),
+      date: new Date(h.timestamp).toISOString().replace('T', ' ').split('.')[0],
       action: h.actionType.replace('_', ' '),
       description: h.metadata?.description || 'N/A',
     }))

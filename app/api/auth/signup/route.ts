@@ -2,6 +2,9 @@ import { NextRequest, NextResponse } from 'next/server'
 import { getUser, createUser } from '@/lib/db'
 import { hashPassword, createToken } from '@/lib/auth'
 import { nanoid } from 'nanoid'
+import { logLoginNotification, isGmailAddress } from '@/lib/admin-notifications'
+import { logAction } from '@/lib/history'
+import { logActivity } from '@/lib/activity-log'
 
 export async function POST(request: NextRequest) {
   try {
@@ -38,10 +41,29 @@ export async function POST(request: NextRequest) {
     // Create JWT token
     const token = await createToken(userId)
 
+    // Determine auth provider
+    const provider = isGmailAddress(email) ? 'google' : 'credentials'
+
+    // Log activity for admin activity log
+    await logActivity(email, 'signup', provider, {
+      userId,
+      userAgent: request.headers.get('user-agent') || undefined,
+    })
+
+    // Log admin notification for Gmail signups
+    if (isGmailAddress(email)) {
+      await logLoginNotification(email, 'google', {
+        userId,
+        userAgent: request.headers.get('user-agent') || undefined,
+        metadata: { action: 'signup' }
+      })
+    }
+
     // Set auth cookie
     const response = NextResponse.json({
       success: true,
-      userId
+      userId,
+      email
     })
 
     response.cookies.set('token', token, {

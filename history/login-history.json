@@ -116,5 +116,16 @@
     "metadata": {
       "email": "designerfatii@gmail.com"
     }
+  },
+  {
+    "id": "1770307725007-dtgcfm1",
+    "timestamp": "2026-02-05T16:08:45.007Z",
+    "userId": "M5XQEdB38Fviz3WocxV2q",
+    "actionType": "user_login",
+    "metadata": {
+      "email": "designerfatii@gmail.com",
+      "provider": "google",
+      "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36"
+    }
   }
 ]
